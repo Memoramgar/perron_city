@@ -65,6 +65,7 @@
   }
   .card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:16px; display:flex; flex-direction:column; gap:8px;}
   .card .icon{font-size:2.4rem; line-height:1;}
+  .card .product-photo{width:100%; height:140px; object-fit:cover; border-radius:8px; background:var(--sand);}
   .card h3{margin:0; font-size:1.05rem; color:var(--teal-deep);}
   .card .cat{font-size:0.82rem; color:#6C766F;}
   .card .price{font-family:'Baloo 2'; font-weight:700; color:var(--mango-deep); font-size:1.15rem; margin-top:auto;}
@@ -233,7 +234,7 @@
       const card = document.createElement('div');
       card.className = 'card';
       card.innerHTML = `
-        <div class="icon">${p.icon}</div>
+        ${p.img ? `<img src="${p.img}" alt="${p.name}" class="product-photo">` : `<div class="icon">${p.icon}</div>`}
         <h3>${p.name}</h3>
         <div class="cat">${p.cat.charAt(0).toUpperCase()+p.cat.slice(1)}</div>
         <div class="price">$${p.price} MXN</div>
